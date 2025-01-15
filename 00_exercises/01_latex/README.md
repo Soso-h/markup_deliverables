@@ -3,7 +3,7 @@
 
 ## Exercise 1 
 ### Overview
-This repository contains my files for Exercise 1 of the Markup class, which involved creating and modifying LaTeX documents, generating figures and tables using R, and using LaTeXdiff to compare the original and modified versions of the document.
+This folder contains my files for Exercise 1 of the Markup class, which involved creating and modifying LaTeX documents, generating figures and tables using R, and using LaTeXdiff to compare the original and modified versions of the document.
 
 ### Contents & Documents:
 doc1_SHetche.pdf: The original document containing:
