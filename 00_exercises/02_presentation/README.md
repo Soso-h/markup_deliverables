@@ -23,6 +23,7 @@ Each folder contains all necessary files to reproduce the respective presentatio
 - .qmd file
 - .html file
 - .css file
+- renv.lock file
 - References
 - Images
 - R Project
