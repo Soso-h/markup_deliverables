@@ -1,0 +1,56 @@
+---
+title: "Sophie's First Quarto Presentation"
+author: 
+  - name: Sophie Hetche
+    orcid: 0009-0006-1845-9540
+    email: s.hetche@students.uu.nl
+date: 16 Oct 2024
+date-format: "D MMM YYYY"
+#bibliography: 
+execute: 
+  echo: true
+editor: source
+format: 
+  revealjs:
+    embed-resources: true #presentation is self-contained: works also wihtout internet connectivity
+    theme: [league]
+    progress: true
+    multiplex: true
+    transition: convex
+    slide-number: true
+    margin: 0.075
+    toc: false
+    toc-depth: 1
+    toc-title: Outline
+    scrollable: false #cannot scroll slides
+    reference-location: margin
+    footer: Presentation Exercise 1
+---
+
+## My Favourtie Equation
+
+The solutions of a quadratic equation can be expressed using the p-q-formula: $$\frac{-p}{2} \pm \sqrt{\left(\frac{p}{2}\right)^2 - q}$$
+
+<div class="fragment">
+  
+### The Story Behind it
+
+I will never forget this formula because my math teacher played [this German song](https://www.youtube.com/watch?v=tRblwTsX6hQ) to us in 7th grade, and the melody stuck, meaning I will always know how to solve a quadratic equation.
+
+</div>
+
+## A Fact About Me
+
+I really like to take analog photos, especially of lively situations. Here are some of my photos:
+
+::: columns
+::: {.column width="33%"}
+![A cute koala](koala.jpg){fig-align="left" width="60%"}
+:::
+::: {.column width="33%"}
+![A cow](cow.jpg){fig-align="left" width="80%"}
+:::
+::: {.column width="33%"}
+![A sting ray](ray.jpg){fig-align="left" width="80%"}
+:::
+:::
