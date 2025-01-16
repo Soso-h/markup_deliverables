@@ -1,0 +1,155 @@
+---
+title: "Cognitive Dissonance: Balancing Conflicting Beliefs"
+author: 
+  - name: Sophie Hetche
+    orcid: 0009-0006-1845-9540
+    email: s.hetch@students.uu.nl
+date: today
+date-format: "06/12/2024"
+bibliography: documents/references.bib
+csl: documents/apa.csl
+execute: 
+  echo: true
+editor: source
+format: 
+  revealjs:
+    css: styles.css
+    embed-resources: true #presentation is self-contained: works also wihtout internet connectivity
+    theme: [solarized]
+    progress: true
+    multiplex: false # I dont need speaker mode/notes
+    transition: slide
+    slide-number: true
+    margin: 0.1
+    logo: "images/logo.png" 
+    toc: false
+    scrollable: false #cannot scroll slides
+    reference-location: margin
+    footer: Presentation Exercise 2
+---
+
+## Cognitive Dissonance Theory 
+
+<div style="font-size: 0.9em;">
+  **Cognitive dissonance** = the mental discomfort that results from holding two conflicting beliefs, values, or attitudes
+</div>
+
+<br>
+
+<center>
+![Example of conflicting beliefs](images/CogDis.png){width="40%"}  
+<span style="font-size: 25px;">*Figure 1: Example of conflicting beliefs*</span>
+</center>
+
+
+## Development
+
+::: columns
+::: {.column width="80%"}
+
+<span style="font-size: 0.9em;">
+*--> Cognitive Dissonance Theory was developed by Leon Festinger*
+</span>
+
+<br>
+
+<span style="font-size: 0.9em;">
+According to @festingerCognitiveDissonance1962, people are motivated to reduce the resulting discomfort by either:
+</span>
+
+<span style="font-size: 0.9em;">
+a) changing their beliefs,  
+b) acquiring new information to justify the inconsistency,  
+c) minimizing the importance of the conflict.
+</span>
+:::
+
+::: {.column width="20%"}
+![Leon Festinger](images/Leon_Festinger.jpg){fig-align="left" width="70%"}
+:::
+:::
+
+## Key Concepts of Cogntive Dissonance
+
+```{r Key_Concepts, cache=TRUE, echo=FALSE, message=FALSE}
+
+library(DT)
+library(htmltools) # needed for table size modifications
+
+
+# Data for the interactive table
+cognitive_dissonance <- data.frame(
+  Concept = c("Dissonance", "Consonance", "Rationalization", "Attitude Change"),
+  Definition = c(
+    "The mental discomfort from conflicting beliefs and behaviors.",
+    "A state where beliefs and behaviors are consistent.",
+    "Justifying conflicting behavior to reduce dissonance.",
+    "Changing one's beliefs to align with behavior."
+  ),
+  Example = c(
+    "Smoking despite knowing it is harmful.",
+    "Eating healthy to stay fit when valuing health.",
+    "'I smoke because it helps me relax.'",
+    "Believing 'occasional smoking isn’t harmful.'"
+  ),
+  Strategy = c(
+    "Change belief, behavior, or justify.",
+    "Maintain consistent actions.",
+    "Add a new belief to justify.",
+    "Adjust attitudes for consistency."
+  )
+)
+
+# Render interactive table with reduced font size for the entire table and controls
+  datatable(cognitive_dissonance, options = list(
+    pageLength = 4,  # Show 5 rows by default
+    autoWidth = TRUE, # Automatically adjust column widths
+    scrollX = FALSE,  # Disable horizontal scrolling
+    searching = TRUE  # Enable search functionality
+  )) 
+```
+
+## Cognitive Dissonance Equation
+
+Cognitive dissonance can be expressed with an equation, too:
+
+<div style="font-size: 85%;">
+$$
+\begin{aligned}
+    D &= \frac{|B_1 - B_2|}{I} \\
+    \text{Where:} \\
+    B_1 &= \text{Belief 1 (e.g., Smoking is harmful)} \\
+    B_2 &= \text{Belief 2 (e.g., I smoke regularly)} \\
+    I &= \text{Importance of beliefs (higher value = greater importance)} \\
+\end{aligned}
+$$
+</div>
+
+## Example: Analyzing Cognitive Dissonance Data
+
+<span style="font-size: 0.8em;">
+The following is an example of how one could perform a linear regression to analyze the relationship between a persons' dissonance level and their **justification behavior**:
+</span>
+
+<br>
+
+```{r, eval=FALSE, echo=TRUE}
+# run the regression model
+model <- lm(dissonance_level ~ justification_behavior + belief_strength, data = cognitive_data)
+
+# Show summary of the regression analysis
+summary(model)
+```
+
+
+## Example of Cognitive Dissonance
+
+<div style="text-align: center;">
+  {{< video https://www.youtube.com/embed/lYwdveAFYaU width=800 height=450 >}}
+  <p style="font-size: 25px; color: gray;">Example taken from the show  F R I E N D S</p>
+</div>
+
+
+
+## References
+

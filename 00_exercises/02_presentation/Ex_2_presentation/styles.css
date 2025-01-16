@@ -1,0 +1,45 @@
+/* CSS for customizing DataTable styles */
+
+/* Reduce the font size of the entire table (table rows and headers) */
+table.dataTable {
+  font-size: 16px;
+}
+
+/* Adjust the size of the 'Show entries' dropdown and its label */
+.dataTables_length select {
+  font-size: 10px;
+  height: 20px;
+  padding: 0px 5px;
+}
+
+.dataTables_length label {
+  font-size: 20px;
+  margin: 0px 5px;
+}
+
+/* Adjust the size of the search bar input */
+.dataTables_filter input {
+  font-size: 15px;
+  height: 20px;
+}
+
+/* Adjust the 'Search:' label font size */
+.dataTables_filter label {
+  font-size: 20px;
+}
+
+/* Adjust the size of the pagination controls (Previous [1] Next) */
+.dataTables_paginate {
+  font-size: 10px;
+}
+
+.dataTables_paginate .paginate_button {
+  font-size: 10px;
+  height: 20px;
+  padding: 0px 5px;
+}
+
+/* Adjust the size of the 'Showing X of Z entries' text */
+.dataTables_info {
+  font-size: 20px;
+}
