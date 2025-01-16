@@ -5,7 +5,7 @@
 In Week 2, the focus was on creating presentations using markup languages and reproducible programming. The exercises involved developing two separate presentations.
 
 
-**Repository Contents**
+### **Repository Contents**
 
 This repository includes two folders corresponding to the exercises:
 
@@ -16,7 +16,7 @@ This repository includes two folders corresponding to the exercises:
 - The presentation for Exercise 2 (Ex_2_presentation).
 
 
-**Folder Details**
+### **Folder Details**
 
 Each folder contains all necessary files to reproduce the respective presentations, including:
 
