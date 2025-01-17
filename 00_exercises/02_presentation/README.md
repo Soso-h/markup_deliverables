@@ -5,9 +5,9 @@
 In Week 2, the focus was on creating presentations using markup languages and reproducible programming. The exercises involved developing two separate presentations.
 
 
-### **Repository Contents**
+### **Folder Contents**
 
-This repository includes two folders corresponding to the exercises:
+This folder includes two folders corresponding to the exercises:
 
 *Folder 1:*
 - The 3-slide presentation as part of the subseqeunt weeks´s class preparation
