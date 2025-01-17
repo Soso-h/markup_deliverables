@@ -39,6 +39,6 @@ November 2024
 
 ## License
 
-This project is licensed under the [MIT License]([LICENSE](https://github.com/Soso-h/markup_deliverables/blob/dev/00_exercises/04_reproducibility/Ex_1_Practice/my_reproducible_manuscript/LICENSE.md)).
+This project is licensed under the [MIT License](https://github.com/Soso-h/markup_deliverables/blob/dev/00_exercises/04_reproducibility/Ex_1_Practice/my_reproducible_manuscript/LICENSE.md).
 
 
