@@ -42,7 +42,7 @@ December 2024
 
 ### License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/Soso-h/markup_deliverables/blob/dev/00_exercises/04_reproducibility/Ex_2_Simulation/LICENSE.md).
 
 
 
