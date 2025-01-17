@@ -1,0 +1,88 @@
+---
+title: "My Reproducible Manuscript"
+author: "Sophie Hetche"
+format: 
+  html: default
+bibliography: references.bib
+csl: apa.csl
+---
+
+```{r libraries, include = FALSE}
+library(ggplot2)
+```
+
+# Excercise 1
+
+## Meet Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. 
+To learn more about Quarto see <https://quarto.org>.
+
+## Meet the Penguins
+```{r include = FALSE}
+penguins <- read.csv("../data/data.csv")
+```
+
+
+<div style="display: flex; align-items: center;">
+  <p>The `penguins` data from the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package [@horstPalmerpenguinsV0102020]
+ contains size measurements for `r nrow(penguins)` penguins from three species observed on three islands in the Palmer Archipelago, Antarctica.</p>
+  <img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" alt="penguins" style="margin-left: 20px; width: 200px;">
+</div>
+
+### Number of Penguins per species
+- There are `r sum(penguins$Species=='Chinstrap penguin (Pygoscelis antarctica)')` penguins of the Chinstrap species in the dataset.
+- There are `r sum(penguins$Species=='Gentoo penguin (Pygoscelis papua)')` penguins of the Gentoo species in the dataset.
+- There are `r sum(penguins$Species=='Adelie Penguin (Pygoscelis adeliae)')` penguins of the Adelie species in the dataset.
+
+
+This means, the Chinstrap and Gentoo penguins together are `68+124` penguins.
+
+
+### Second Reference
+
+Just for the purpose of citing another reference, see here this interesting paper about psychology and the law by @tylerPsychologyLawReconciling2007.
+
+## Results 
+The plot below shows the relationship between flipper and bill lengths of these penguins.
+
+
+```{r Plotting Penguins, echo=FALSE, warning=FALSE}
+# Plot penguins
+ggplot(penguins, 
+       aes(x = `Flipper.Length..mm.`, y = `Culmen.Length..mm.`)) +
+        geom_point(aes(color = Species, shape = Species)) +
+        scale_color_manual(values = c("darkorange","purple","cyan4")) +
+        labs(
+                title = "Flipper and Culmen length",
+                subtitle = "Dimensions for penguins at Palmer Station LTER",
+                x = "Flipper length (mm)", y = "Culmen length (mm)",
+                color = "Penguin species", shape = "Penguin species"
+        ) +
+        theme_minimal()
+```
+
+## Additition Function
+
+In the following I am testing the addition function to see if it works: 
+
+```{r}
+#| file: "../scripts/do_addition.R"
+#| eval: true 
+#| echo: false
+```
+
+
+```{r test do addtion function}
+#| echo: false
+#| warning: false
+
+# Example of using the do_addition function
+result1 <- do_addition(5, 7)
+result2 <- do_addition(10, 20)
+
+# Display results
+result1
+result2
+
+```
