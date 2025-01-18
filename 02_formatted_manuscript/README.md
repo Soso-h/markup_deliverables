@@ -1,11 +1,11 @@
 
 ### README
 
-# Deliverable 3: My Reproducible Markup Manuscript
+# My Reproducible Markup Manuscript
 
-## Project Overview
+## Deliverable 3
 
-To submit as my 3rd deliverable for this course, this project aims to reproduce and adapt the simulation study from the paper 
+To submit as my third deliverable for this course, this project aims to reproduce and adapt the simulation study from the paper 
 **"[Introduction to Statistical Simulations in Health Research](https://bmjopen.bmj.com/content/10/12/e039921#T2)"** 
 by Boulesteix et al. (2020). 
 
