@@ -26,15 +26,13 @@ The project is structured as follows:
 
 To replicate this project on your local system:
 
-1. Clone this repository using:
-    ```bash
-    git clone https://github.com/Soso-h/markup_deliverables/tree/dev/02_formatted_manuscript
-    ```
+1. Download the Zip file of my dev branch of my [markup_deliverables repository](https://github.com/Soso-h/markup_deliverables/tree/dev)
 
-2. Open the R. project in RStudio.
+2. Open the Zip file on your local computer
+   
+3. open the R. project in RStudio.
 
-3. Run the Quarto (`.qmd`) manuscript file to compile the pdf document, 
-including the simulation and results.
+5. Run the Quarto (`.qmd`) manuscript file to compile the pdf document, including the simulation and results.
 
 ## Dependencies
 
