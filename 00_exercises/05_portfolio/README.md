@@ -2,7 +2,7 @@
 
 ## Week 5 Excercise 
 
-**This weeks excersice includes 3 deliverables**
+**This weeks excersice includes 3 deliverables**:
 
 1. A link to my personal portfolio wepage: https://soso-h.github.io/portfolio25/
 2. A link to my personal repository template: https://github.com/Soso-h/portfolio25
