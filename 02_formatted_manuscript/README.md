@@ -30,7 +30,9 @@ To replicate this project on your local system:
 
 2. Open the Zip file on your local computer
    
-3. open the R. project in RStudio.
+3. Open the folder 02_formatted_manuscript
+   
+4. Open the R. project in RStudio.
 
 5. Run the Quarto (`.qmd`) manuscript file to compile the pdf document, including the simulation and results.
 
