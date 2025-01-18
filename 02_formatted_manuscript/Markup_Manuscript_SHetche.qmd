@@ -1,0 +1,245 @@
+---
+title: "Reproduction of Simulation Study to Investigate Impact of Measurement Error"
+subtitle: "Deliverable 3"
+author: 
+  - Sophie Hetche
+date: "2024-11-13"
+format: 
+  pdf: default
+bibliography: documents/references.bib
+csl: documents/apa.csl
+
+---
+
+# Introduction
+
+This project aims to reproduce and adapt the simulation study from the paper 
+**"[Introduction to Statistical Simulations in Health Research](https://bmjopen.bmj.com/content/10/12/e039921#T2)"** 
+by @boulesteixIntroductionStatisticalSimulations2020a. The paper highlights how simulations can be used to evaluate statistical methods, especially when the true effects in real-world data are unknown due to sampling errors or measurement issues.
+
+For illustration purposes, the paper comprises a small statistical simulation to investigate the impact of measurement error when conducting a linear regression analysis. Specifically, the study simulates the effects of measurement errors on the coefficients of a linear regression model that examines the relationship between glycated hemoglobin (HbA1c) and systolic blood pressure (bp). This simulation is reproduced within this project.
+
+# Regression Analysis
+Firstly, two baseline regression models are run to predict blood pressure with HbA1c. The first regression (A) adjusts for the effects of age and sex in this relationship. The second regression (B) additionally adjust for BMI. The equations corresponding to both linear regressions are as follows:
+
+$$
+\tag{A} \text{bp} = \beta_0 + \beta_1 \cdot \text{HbA1C} + \beta_2 \cdot \text{age} + \beta_3 \cdot \text{sex} + \epsilon
+$$
+
+$$
+\tag{B} \text{bp} = \beta_0 + \beta_1 \cdot \text{BMI} + \beta_2 \cdot \text{HbA1C} + \beta_3 \cdot \text{age} + \beta_4 \cdot \text{sex} + \epsilon 
+$$
+
+\vspace{1cm} 
+
+Where:
+
+- $\beta_0$ is the intercept
+- $\beta_1$, $\beta_2$ and $\beta_3$ are the regression coefficients (aka slopes) and
+- $\epsilon$ is the residual error representing the difference between the observed bp values and the values predicted by the regression model.
+
+
+# Results
+
+**Disclaimer**: For replication of this simulation, the data can be downloaded in xpt form from [here](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Begi-nYear=2015).
+
+```{r Libraries, include=FALSE}
+
+# List of required packages
+required_packages <- c("Hmisc", "mice", "tidyverse", "broom", "knitr", "dplyr", "kableExtra")
+
+# Check if each package is installed, and install if necessary
+for (pkg in required_packages) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+  # Load the library
+  library(pkg, character.only = TRUE)
+}
+
+```
+
+```{r Loading data, include=FALSE}
+
+# read data
+d1 <- sasxport.get("data/DEMO_I.XPT")
+d2 <- sasxport.get("data/BPX_I.XPT")
+d3 <- sasxport.get("data/BMX_I.XPT")
+d4 <- sasxport.get("data/GHB_I.XPT")
+d5 <- sasxport.get("data/TCHOL_I.XPT")
+d1.t <- subset(d1,select=c("seqn","riagendr","ridageyr"))
+d2.t <- subset(d2,select=c("seqn","bpxsy1"))
+d3.t <- subset(d3,select=c("seqn","bmxbmi"))
+d4.t <- subset(d4,select=c("seqn","lbxgh"))
+d5.t <- subset(d5,select=c("seqn","lbdtcsi"))
+d <- merge(d1.t,d2.t)
+d <- merge(d,d3.t)
+d <- merge(d,d4.t)
+d <- merge(d,d5.t)
+```
+
+```{r Preparing data, include=FALSE}
+
+# rename variables:
+# RIAGENDR - Gender
+# RIDAGEYR - Age in years at screening
+# BPXSY1 - Systolic: Blood pres (1st rdg) mm Hg
+# BMXBMI - Body Mass Index (kg/m**2)
+# LBDTCSI - Total Cholesterol (mmol/L)
+# LBXGH - Glycohemoglobin (%)
+
+d$age <- d$ridageyr
+d$sex <- d$riagendr
+d$bp <- d$bpxsy1
+d$bmi <- d$bmxbmi
+d$HbA1C <- d$lbxgh
+d$chol <- d$lbdtcsi
+
+# transforming data of minors (under 18) to missing
+d$age[d$age<18] <- NA
+```
+
+```{r Regression analysis, include=FALSE}
+
+# select complete cases:
+dc <- cc(subset(d,select=c("age","sex","bmi","HbA1C","bp")))
+
+# analysis:
+summary(lm(bp ~ HbA1C + age + as.factor(sex), data=dc))
+confint(lm(bp ~ HbA1C + age + as.factor(sex), data=dc))
+summary(lm(bp ~ HbA1C + bmi + age + as.factor(sex), data=dc))
+confint(lm(bp ~ HbA1C + bmi + age + as.factor(sex), data=dc))
+```
+
+The results of the first regression analysis (A) can be found in Table 1, and results of the second regression analysis (B) can be found in Table 2.
+
+\vspace{0.5cm} 
+
+```{r regression table A, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Fit the first linear model
+model1 <- lm(bp ~ HbA1C + age + as.factor(sex), data = dc)
+
+# Tidy the results and add confidence intervals
+tidy_model1 <- broom::tidy(model1, conf.int = TRUE) %>%
+  mutate(
+    term = gsub("as.factor\\(sex\\)2", "Sex (Male vs Female)", term),
+    term = gsub("HbA1C", "Hemoglobin A1C", term),
+    term = gsub("age", "Age", term)
+  )
+
+# Display the first model results as a table
+knitr::kable(
+  tidy_model1,
+  digits = 3,
+  col.names = c("Variable", "Estimate", "Std. Error", "Statistic", "p-value", "Conf. Low", "Conf. High"),
+  caption = "Linear Regression Results for Blood Pressure (Model A)",
+  format = "latex",
+  booktabs = TRUE
+) %>%
+  kableExtra::kable_styling(latex_options = c("H"))
+
+
+
+```
+
+\vspace{0.5cm} 
+
+```{r regression table B, echo=FALSE, message=FALSE, warning=FALSE}
+# Fit the second linear model
+model2 <- lm(bp ~ HbA1C + bmi + age + as.factor(sex), data = dc)
+
+# Tidy the results and add confidence intervals
+tidy_model2 <- broom::tidy(model2, conf.int = TRUE) %>%
+  mutate(
+    term = gsub("as.factor\\(sex\\)2", "Sex (Male vs Female)", term),
+    term = gsub("HbA1C", "Hemoglobin A1C", term),
+    term = gsub("age", "Age", term),
+    term = gsub("bmi", "Body Mass Index (BMI)", term)
+  )
+
+# Display the second model results as a table
+knitr::kable(
+  tidy_model2,
+  digits = 3,
+  col.names = c("Variable", "Estimate", "Std. Error", "Statistic", "p-value", "Conf. Low", "Conf. High"),
+  caption = "Linear Regression Results for Blood Pressure (Model B)",
+  format = "latex",
+  booktabs = TRUE
+) %>%
+  kableExtra::kable_styling(latex_options = c("H"))
+
+```
+
+## The Simulation
+
+The simulation introduces random errors into the key predictors—HbA1c and BMI—to assess how measurement inaccuracies influence the estimated regression coefficients. These errors were drawn from a normal distribution with varying magnitudes, ranging from no error to up to 50% error in HbA1c and BMI. The simulation was conducted across 1,000 repetitions for each scenario to account for potential variability and assess the impact of measurement error on the model's results. 
+
+```{r Simulation, include=FALSE}
+# simulation of measurement error:
+ref <- lm(bp ~ HbA1C + bmi + age + as.factor(sex), data=dc)$coef[2]
+n.sim <- 1e3
+perc.me.exp <- seq(0,.5,.1)
+perc.me.conf<- seq(0,.5,.1)
+scenarios <- expand.grid(perc.me.exp,perc.me.conf)
+var.exp <- var(dc$HbA1C)
+var.conf <- var(dc$bmi)
+n <- dim(dc)[1]
+
+beta.hat <- matrix(ncol=dim(scenarios)[1], nrow=n.sim)
+for (k in 1:n.sim){
+  print(k)
+  set.seed(k)
+  for (i in 1:dim(scenarios)[1]){
+    var.me.exp <- var.exp*scenarios[i,1]/(1-scenarios[i,1])
+    var.me.conf <- var.conf*scenarios[i,2]/(1-scenarios[i,2])
+    dc$HbA1C.me <- dc$HbA1C + rnorm(dim(dc)[1], 0, sqrt(var.me.exp) )
+    dc$bmi.me <- dc$bmi + rnorm(dim(dc)[1], 0, sqrt(var.me.conf) )
+    beta.hat[k,i] <- lm(bp ~ HbA1C.me + age + bmi.me + as.factor(sex), data=dc)$coef[2]
+  }}
+summary(beta.hat)
+```
+
+### Results of Simulation
+
+Figure 1  displays the impact of measurement error on the estimated association between HbA1c levels and systolic blood pressure, after adjusting for BMI, across various simulation scenarios. 
+
+\vspace{1cm} 
+
+```{r impact measurement error figure, echo=FALSE, eval=TRUE}
+
+tot.mat <- cbind(100*scenarios, apply(beta.hat, 2, mean))
+colnames(tot.mat) <- c("me.exp", "me.conf", "estimate")
+
+FIGURE <- ggplot(tot.mat, aes(me.exp, me.conf)) +
+  geom_tile(color="white", aes(fill = estimate)) +
+  geom_text(aes(label = round(estimate, 2))) +
+  scale_fill_gradient2(low="#D55E00", mid="white", high = "#56B4E9", midpoint=ref) +
+  labs(
+    x = "% of total variance of HbA1c due to measurement error",
+    y = "% of total variance of BMI due to measurement error",
+    title = "Figure 1: Impact of Measurement Error"
+  ) +
+  coord_equal() +
+  scale_y_continuous(breaks = unique(tot.mat[, 1])) +
+  scale_x_continuous(breaks = unique(tot.mat[, 1])) +
+  theme(
+    panel.background = element_rect(fill = 'white', colour = 'grey'),
+    plot.title = element_text(hjust = 0, margin = margin(b = 20)),  # Add margin at the bottom of the title
+    axis.ticks = element_blank(),
+    axis.title = element_text(size = 9),
+    axis.text = element_text(size = 9),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  )
+
+FIGURE
+
+```
+
+
+# Conclusion
+In conclusion, this simulation study demonstrates the significant impact that measurement error can have on the estimation of relationships in linear regression analysis. By simulating different levels of measurement error in key variables such as HbA1c and BMI, we observed how such errors could attenuate or strengthen effect estimates, depending on whether the error occurred in the exposure or confounding variable. This study highlights the importance of accounting for measurement error in epidemiological research, as failure to do so can lead to biased results
+
+\newpage
+# References
