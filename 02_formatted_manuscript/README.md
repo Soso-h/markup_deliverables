@@ -32,7 +32,7 @@ To replicate this project on your local system:
 
 1. Clone this repository using:
     ```bash
-    git clone https://
+    git clone https://github.com/Soso-h/markup_deliverables/tree/dev/02_formatted_manuscript
     ```
 
 2. Open the R. project in RStudio.
