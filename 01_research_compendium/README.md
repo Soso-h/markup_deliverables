@@ -7,7 +7,7 @@
 
 ### Overview
 
-This folder present a full reproducible research compendium as deliverable 4 of this course. This compendium includes the reproduction of the simulation study from the paper 
+This folder present a full reproducible research compendium as deliverable 4 of this course. This compendium includes all necessary files for the reproduction of the simulation study from the paper 
 **"[Introduction to Statistical Simulations in Health Research](https://bmjopen.bmj.com/content/10/12/e039921#T2)"** 
 by Boulesteix et al. (2020).
 
