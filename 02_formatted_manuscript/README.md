@@ -12,7 +12,7 @@ by Boulesteix et al. (2020).
 
 ## Purpose/Background
 
-The goal of this project is to show my skills in producing a fully reproducible markup manuscript as part of a reproducible research compendium. If someone were to clone my markup_deliverables repository wiht all branches and navigate to 02_formatted_manuscript folder, they should be able to run the .qmd file and generate the final PDF without errors.
+The goal of this project is to show my skills in producing a fully reproducible markup manuscript as part of a reproducible research compendium. If someone were to download the Zip file of my dev branch of my markup_deliverables repository, open it on their local computer, navigate to 02_formatted_manuscript folder and open the week4.Rproj file, they should be able to run the .qmd file and generate the final PDF without errors.
 
 ## Contents
 
