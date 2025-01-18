@@ -58,6 +58,6 @@ January 2025
 
 ### License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/Soso-h/markup_deliverables/blob/dev/02_formatted_manuscript/LICENSE.md).
 
 
