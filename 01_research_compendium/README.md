@@ -3,27 +3,18 @@
 
 # My Reproducible Research Compendium
 
-## Week 4, excercise 2
+## Deliverable 4
 
-### Project Overview
+### Overview
 
-This folder present a full reproducible research compendium as required by 
-exercise 2 of week 4. This compendium includes the reproduction of the 
-simulation study from the paper 
+This folder present a full reproducible research compendium as deliverable 4 of this course. This compendium includes the reproduction of the simulation study from the paper 
 **"[Introduction to Statistical Simulations in Health Research](https://bmjopen.bmj.com/content/10/12/e039921#T2)"** 
 by Boulesteix et al. (2020).
 
 
-### Purpose/Background
-
-The goal of this exercise is to learn how to create a reproducible research 
-compendium using Quarto, focusing on best practices for reproducibility, 
-version control, and research transparency.
-
-
 ### Contents
 
-The project is structured as follows:
+The project deliverable is structured as follows:
 
 -   **data/**: Contains the five data set used for the simulation
 -   **scripts/**: the original R scripts of the study
