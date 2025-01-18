@@ -19,7 +19,7 @@ The project deliverable is structured as follows:
 -   **data/**: Contains the five data set used for the simulation
 -   **scripts/**: the original R scripts of the study
 -   **results/**: The plot output
--   **documents/**: Documentation files, including the .qmd manuscript and the 
+-   **documents/**: Documentation files, including the .qmd manuscript to run the simulation and the 
     pdf document
 
 
