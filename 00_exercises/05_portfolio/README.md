@@ -4,7 +4,7 @@
 
 **This weeks excersice includes 3 deliverables**:
 
-1. A link to my personal portfolio wepage: https://soso-h.github.io/portfolio25/
+1. A link to my personal portfolio wepage: https://soso-h.github.io/portfolio25/ (the title foto only opens sometimes in Chrome for some reason, but Safari always works)
 2. A link to my personal repository template: https://github.com/Soso-h/portfolio25
 3. An archive (zip) of my repository that is hosting the website at the time of handing in
    - please find the Zip files in this folder.
