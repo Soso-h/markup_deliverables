@@ -2,7 +2,7 @@
 
 ## Deliverable 5: R-package
 
-1. the link to my developer repository of my pRcentage R-package as created: https://github.com/Soso-h/pRcentage
+1. the link to my developer repository of my created pRcentage R-package: https://github.com/Soso-h/pRcentage
 2. **IMPORTANT**: there is no DOI to my R package website. When trying to create the doi on Zenodo the release on Zenodo failed. The error seem to be with Zonedos storage system.
 --> you can see that I made a successful release on my [pRcentage repository](https://github.com/Soso-h/pRcentage). The issue is with linking it to a doi.
 
