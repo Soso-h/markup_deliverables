@@ -2,6 +2,6 @@
 
 ## Excercises
 
-This folder contains all folders leading to each respective week of this course and the corresponding class exercises.
+This folder contains all folders leading to each of the 6 respective weeks of this course and the corresponding class exercises.
 
 
