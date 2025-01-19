@@ -2,7 +2,7 @@
 
 ## Week 6: R package
 
-1. the link to my developer repository of my roundR R-package: https://github.com/Soso-h/roundR
+1. the link to my developer repository of my roundR R-package as created in class: https://github.com/Soso-h/roundR
 2. **IMPORTANT**: there is no DOI to my R package website. When trying to create the doi on Zenodo the release on Zenodo failed. I tried it 6 times over mutiple hours. The error seem to be with Zonedos storage system.
 --> you can see that I made 6 different releases on my roundR repository and they were all sucessfull. The issue is with linking it to a doi.
 
