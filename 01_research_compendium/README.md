@@ -21,6 +21,18 @@ The project deliverable is structured as follows:
 -   **results/**: The plot output
 -   **documents/**: Documentation files, including the .qmd manuscript to run the simulation and the 
     pdf document
+-   **renv/**: All necessary renv files
+
+### To reproduce:
+1. **Clone this repository**:  
+   Run the following command in your terminal to clone the repository
+ 
+2. **Navigate to the folder**:  
+   Move to the directory containing this folder ("01_research_compendium")
+
+3. **Run the analysis**:  
+   Open the .qmd file in RStudio and render it
+    *note*: the version of the used packages are listed in the renv.lock file.
 
 
 ### Author
