@@ -26,7 +26,7 @@ The project is structured as follows:
 -   **data/**: Contains the original data set used for the exercise
 -   **scripts/**: R scripts for creating the plot and the addition function
 -   **results/**: The plot output
--   **doc/**: Documentation files, including the .qmd manuscript and the references
+-   **docs/**: Documentation files, including the .qmd manuscript and the references
 
 
 ## Author
