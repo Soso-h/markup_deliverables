@@ -1,6 +1,6 @@
 # Markup languages and reproducible programming in statistics (202000010)
 
-**disclaimer**: my own R package created for deliverable 5 can be found in the folder: [03_reusable code](https://github.com/Soso-h/markup_deliverables/tree/dev/03_reusable_code)
+**disclaimer**: links to my own R package created for deliverable 5 can be found in the folder: [03_reusable code](https://github.com/Soso-h/markup_deliverables/tree/dev/03_reusable_code)
 
 
 ## Week 6: R package
