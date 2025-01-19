@@ -1,8 +1,8 @@
 # Markup Languages and Reproducible Programming in Statistics (202000010)
 
-## **Week 4: Version Control with Git and GitHub**
+## **Week 3: Version Control with Git and GitHub**
 
-In Week 4, we focused on version control using Git and GitHub. This included learning how to manage repositories, create branches, and collaborate using pull requests (PRs).
+In Week 3, we focused on version control using Git and GitHub. This included learning how to manage repositories, create branches, and collaborate using pull requests (PRs).
 
 ### **Exercises**
 1. Updating the Story:
