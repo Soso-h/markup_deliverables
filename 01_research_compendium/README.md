@@ -46,7 +46,7 @@ December 2024
 
 ### License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/Soso-h/markup_deliverables/blob/dev/01_research_compendium/LICENSE.md).
 
 
 
