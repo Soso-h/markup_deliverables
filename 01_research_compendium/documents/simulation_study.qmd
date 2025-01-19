@@ -20,9 +20,19 @@ note: uninstalled libraries can be installed by using `install.packages("Library
 
 ```{r libraries, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 
-library(Hmisc)
-library(mice)
-library(tidyverse)
+# List of required packages
+required_packages <- c("Hmisc", "mice", "tidyverse")
+
+# Check if the respective packages are installed, and install if necessary
+for (pkg in required_packages) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+  
+  # Load the library of the packages
+  library(pkg, character.only = TRUE)
+}
+
 
 ```
 
