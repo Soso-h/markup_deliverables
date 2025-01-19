@@ -32,7 +32,8 @@ The project deliverable is structured as follows:
 
 3. **Run the analysis**:  
    Open the .qmd file in RStudio and render it
-    *note*: the version of the used packages are listed in the renv.lock file.
+
+   *note*: the version of the used packages are listed in the renv.lock file.
 
 
 ### Author
